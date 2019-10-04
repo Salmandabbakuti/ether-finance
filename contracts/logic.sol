@@ -167,9 +167,14 @@ function endLoan(uint _loanId) public{
       );
      }
 
-function getMyLoansLength() public view returns(uint) {
+  function getMyLoansLength() public view returns(uint) {
         
        return userLoans[msg.sender].length;
+     }
+
+  function getAllLendersLength() public view returns(uint) {
+        
+       return allLenders.length;
      }
 
 }
