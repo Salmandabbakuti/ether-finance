@@ -27,6 +27,12 @@ struct request{
     uint repaymentPeriod;
     uint settledAmount;
       }
+    struct userLoan{
+    uint loanId;
+    address lender;
+    uint loanAmount;
+    uint repaymentPeriod;
+      }
     struct requestStatus{
     uint loanId;
     bool isApproved;
@@ -35,7 +41,7 @@ struct request{
     uint dateApproved;
   
    }
-
+mapping(address=>userLoan[])private userLoans;
 mapping(address=>lender) public lenders;
 mapping(address=>mapping(uint=>request)) private loanRequests;
 mapping(address=>mapping(uint=>requestStatus))private loanRequestsStatus;
@@ -60,7 +66,8 @@ function requestLoan(string memory _name, string memory _contactNumber, string m
             require(lenders[_lender].created,"Lender is not Existed");
           
             uint _loanId=Id++;
-         
+            userLoan memory loan =userLoan(_loanId,_lender,_amount,_repaymentPeriod);
+            userLoans.push(loan);
             loanRequests[_lender][_loanId].requesterAddress=msg.sender;
             loanRequests[_lender][_loanId].name=_name;
             loanRequests[_lender][_loanId].mobile=_contactNumber;
