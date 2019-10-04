@@ -27,6 +27,18 @@ struct request{
     uint repaymentPeriod;
     uint settledAmount;
       }
+    struct userLoan{
+    uint loanId;
+    address lender;
+    uint loanAmount;
+    uint repaymentPeriod;
+      }
+    struct loanRequest{
+    uint loanId;
+    address requester;
+    uint loanAmount;
+    string contactAddress;
+      }
     struct requestStatus{
     uint loanId;
     bool isApproved;
@@ -35,7 +47,8 @@ struct request{
     uint dateApproved;
   
    }
-
+mapping(address=>loanRequest[])private lenderRequests;
+mapping(address=>userLoan[])private userLoans;
 mapping(address=>lender) public lenders;
 mapping(address=>mapping(uint=>request)) private loanRequests;
 mapping(address=>mapping(uint=>requestStatus))private loanRequestsStatus;
@@ -60,7 +73,10 @@ function requestLoan(string memory _name, string memory _contactNumber, string m
             require(lenders[_lender].created,"Lender is not Existed");
           
             uint _loanId=Id++;
-         
+            loanRequest memory request=loanRequest(_loanId,msg.sender,_amount,_address);
+            userLoan memory loan =userLoan(_loanId,_lender,_amount,_repaymentPeriod);
+            userLoans[msg.sender].push(loan);
+            lenderRequests[_lender].push(request);
             loanRequests[_lender][_loanId].requesterAddress=msg.sender;
             loanRequests[_lender][_loanId].name=_name;
             loanRequests[_lender][_loanId].mobile=_contactNumber;
@@ -149,6 +165,39 @@ function endLoan(uint _loanId) public{
        loanRequestsStatus[msg.sender][_loanId].isEnded,
        loanRequestsStatus[msg.sender][_loanId].dateApproved
       );
+     }
+  function getMyLoans(uint _index) public view returns(uint,address,uint,uint) {
+        
+       return(
+       userLoans[msg.sender][_index].loanId,
+        userLoans[msg.sender][_index].lender,
+        userLoans[msg.sender][_index].loanAmount,
+        userLoans[msg.sender][_index].repaymentPeriod
+      );
+     }
+
+function getRequests(uint _index) public view returns(uint,address,uint,string memory) {
+        
+       return(
+       lenderRequests[msg.sender][_index].loanId,
+        lenderRequests[msg.sender][_index].requester,
+        lenderRequests[msg.sender][_index].loanAmount,
+        lenderRequests[msg.sender][_index].contactAddress
+      );
+     }
+
+  function getMyLoansLength() public view returns(uint) {
+        
+       return userLoans[msg.sender].length;
+     }
+ function getRequestsLength() public view returns(uint) {
+        
+       return lenderRequests[msg.sender].length;
+     }
+
+  function getAllLendersLength() public view returns(uint) {
+        
+       return allLenders.length;
      }
 
 }
