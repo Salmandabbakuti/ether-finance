@@ -157,6 +157,20 @@ function endLoan(uint _loanId) public{
        loanRequestsStatus[msg.sender][_loanId].dateApproved
       );
      }
+  function getMyLoans(uint _index) public view returns(uint,address,uint,uint) {
+        
+       return(
+       userLoans[msg.sender][_index].loanId,
+        userLoans[msg.sender][_index].lender,
+        userLoans[msg.sender][_index].loanAmount,
+        userLoans[msg.sender][_index].repaymentPeriod
+      );
+     }
+
+function getMyLoansLength() public view returns(uint) {
+        
+       return userLoans[msg.sender].length;
+     }
 
 }
  
