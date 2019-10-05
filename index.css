@@ -4,6 +4,9 @@
     background-color: rgb(4, 166, 255);
     margin-bottom: 50px;
 }
+a {
+text-decoration: none; 
+  }
 img {
   display: block;
   margin-left: auto;
@@ -19,13 +22,13 @@ h3, h2, h4 {
 }
 
 button {
-  width: 10%;
+  width: auto;
   background-color: #4CAF50;
   color: white;
   padding: 10px 8px;
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
 }
 input[type=text], input[type=number] {
