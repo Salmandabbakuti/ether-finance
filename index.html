@@ -12,32 +12,30 @@
   <div id="banner">
     <img src="fintech.jpeg">
   </div>
-
- <div style="text-align: center;">
-<label><b>Register Financer:</b></label>
-<input type="text" id="lenderName" placeholder="Enter Name.." required />
-<input type="text" id="address" placeholder="Address.." required />
-<input type="text" id="contactNumber" placeholder="Contact Number.." required />
-<input type="number" id="poolCapacity" placeholder="Pool Capacity in Ether...." required />
-<button id="registerLender">Register Financer</button>
+<div class="box">
+<button style="margin-left: 20px, color: white;"><a href="./financer.html">Switch To Financer</a><i class="fa fa-user-plus"></i></button>  
+<a class="button" href="#popup1">Request Loan</a>
 </div>
 
-<div style="text-align: center;">
-<label><b>Request Loan:</b></label>
-<input type="text" id="requesterName" placeholder="Enter Name.." required />
-<input type="text" id="requesterAddress" placeholder="Address.." required />
-<input type="text" id="requesterContactNumber" placeholder="Contact Number.." required />
-<input type="number" id="requestAmount" placeholder="Loan Amount in Ether.." required />
-<input type="text" id="lenderAddress" placeholder="Financer Address.." required />
-<input type="text" id="repaymentPeriod" placeholder="Enter Repayment Period" required />
-<button id="requestLoan">Request Loan</button>
+<div id="popup1" class="overlay">
+  <div class="popup">
+        <h2>Request Loan</h2>
+	<a class="close" href="#">&times;</a>
+      <div class="content">
+	<div style="text-align: center;">
+         <label><b>Apply Now</b></label>
+        <input type="text" id="requesterName" placeholder="Enter Name.." required />
+        <input type="text" id="requesterAddress" placeholder="Address.." required />
+        <input type="text" id="requesterContactNumber" placeholder="Contact Number.." required />
+        <input type="number" id="requestAmount" placeholder="Loan Amount in Ether.." required />
+        <input type="text" id="lenderAddress" placeholder="Financer Address.." required />
+        <input type="text" id="repaymentPeriod" placeholder="Enter Repayment Period" required />
+       <button id="requestLoan">Request Loan</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div style="text-align: center;">
-<label><b>Approve Loan:</b></label>
-<input type="text" id="approveLoanId" placeholder="Enter Loan Id ." required />
-<input type="number" id="approvingAmount" placeholder="Enter Amount In Ether.." required />
-<button id="approveLoan">Approve Loan</button>
-</div>
+
 <div style="text-align: center;">
 <label><b>Repay Amount:</b></label>
 <input type="text" id="repayLoanId" placeholder="Enter Loan Id ." required />
@@ -62,7 +60,6 @@
 </div>
 <center>
 <button onclick="getAllLenders()">All Financers</button>
-<button onclick="getRequests()">Loan Requests</button>
 <button onclick="getMyLoans()">My Loans</button>
 </center>
 </br>

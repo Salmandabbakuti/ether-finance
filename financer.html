@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="index.css">
+  <title>Micro Finance-Financers</title>
+</head>
+<body>
+  <div id="band"></div>
+  <h2>MicroFinance-Financers</h2>
+  </br>
+  <h3><marquee behavior="alternate">“Making World Self Reliant..Connecting Financers and Industries Together"</marquee></h3>
+  <h4>Small Industries Financing Platform</h4>
+  <div id="banner">
+    <img src="fintech.jpeg">
+  </div>
+<center>
+<button onclick="getRequests()">Loan Requests</button>
+</center>
+</br>
+<div class="box">
+
+<a class="button" href="#popup1">Register</a>
+</div>
+
+<div id="popup1" class="overlay">
+  <div class="popup">
+        <h2>Financer Registration</h2>
+	<a class="close" href="#">&times;</a>
+      <div class="content">
+	<div style="text-align: center;">
+           <label><b>Register Financer:</b></label>
+           <input type="text" id="lenderName" placeholder="Enter Name.." required />
+           <input type="text" id="address" placeholder="Address.." required />
+           <input type="text" id="contactNumber" placeholder="Contact Number.." required />
+           <input type="number" id="poolCapacity" placeholder="Pool Capacity in Ether...." required />
+           <button id="registerLender">Register Financer</button>
+       </div>	
+    </div>
+  </div>
+</div>
+<div style="text-align: center;">
+<label><b>Approve Loan:</b></label>
+<input type="text" id="approveLoanId" placeholder="Enter Loan Id ." required />
+<input type="number" id="approvingAmount" placeholder="Enter Amount In Ether.." required />
+<button id="approveLoan">Approve Loan</button>
+</div>
+
+<div style="text-align: center;">
+<label><b>Loan Details:</b></label>
+<input type="number" id="getLoanId" placeholder="Enter Loan Id.." required />
+<button onclick="getLoanDetails()">Get Details</button>
+</div>
+<div style="text-align: center;">
+<label><b>Loan Status:</b></label>
+<input type="number" id="getloanIdStatus" placeholder="Enter Loan Id.." required />
+<button onclick="getLoanStatus()">Get Status</button>
+</div>
+
+<div id="resp" style="text-align:center;"></div>
+
+<div style="text-align:center;">
+<h2> All Loan Requests</h2>
+<div id="allRequests" style="text-align:center;"></div>
+</div>
+<hr>
+<div id="log" style="text-align: center;"></div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src= "index.js"></script>
+</body>
+<footer style="text-align: right;">
+<h6>&copy Salman Dabbakuti </h6>
+</footer>
+</html>
