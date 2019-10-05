@@ -13,21 +13,22 @@
   <div id="banner">
     <img src="fintech.jpeg">
   </div>
-<button style="margin-left: 20px, color: white;"><a href="./index.html">Switch To Customer</a></button>  
+<button><a href="./index.html">Switch To Customer</a></button>  
+ <!––Popup Box button-->
+<div class="box">
+<button><a class="button" href="#popup1">Register As Financer</a></button>
+</div>
 <center>
 <button onclick="getRequests()">Loan Requests</button>
 </center>
 </br>
-<div class="box">
-
-<button><a class="button" href="#popup1">Register</a></button>
-</div>
-
+<!––Popup Box Start-->
 <div id="popup1" class="overlay">
   <div class="popup">
         <h2>Financer Registration</h2>
 	<a class="close" href="#">&times;</a>
       <div class="content">
+       <!––Popup Box Content-->
 	<div style="text-align: center;">
            <label><b>Register Financer:</b></label>
            <input type="text" id="lenderName" placeholder="Enter Name.." required />
@@ -39,6 +40,7 @@
     </div>
   </div>
 </div>
+<!––Popup Box Ends-->
 <div style="text-align: center;">
 <label><b>Approve Loan:</b></label>
 <input type="text" id="approveLoanId" placeholder="Enter Loan Id ." required />
