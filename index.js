@@ -33,7 +33,7 @@ function getMyLoans() {
                 sectionsContent += `<div class="message-box">
                     <div><b>Loan Id:</b> ${loanData[0]}</div>
                     <div><b>Lender:</b>${loanData[1]}</div>
-                    <div><b>LoanAmount:</b> ${loanData[2]}</div>
+                    <div><b>LoanAmount:</b> ${(loanData[2])/1000000000000000000}</div>
                      <div><b>Repayment Period:</b> ${loanData[3]}</div>
                 </div>`
 
