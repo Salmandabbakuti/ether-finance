@@ -4,6 +4,10 @@
     background-color: rgb(4, 166, 255);
     margin-bottom: 50px;
 }
+#nav {
+    float:right;
+    
+}
 a {
 text-decoration: none; 
   }
@@ -116,4 +120,3 @@ button:hover {
   .popup{
     width: 70%;
   }
-}
