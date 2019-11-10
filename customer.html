@@ -9,16 +9,13 @@
   <h2>MicroFinance</h2>
   </br>
   <h3><marquee behavior="alternate">“Making World Self Reliant..Connecting Financers and Industries Together"</marquee></h3>
-  <h4>Small Industries Financing Platform</h4>
-  <div id="banner">
-    <img src="fintech.jpeg">
+  <h4>Small Industries Financing Platform</h4></br>
+<div id="nav">
+  <button onclick="getMyLoans()">My Loans</button>
+<button><a class="button" href="#popup1">Request Loan</a></button> 
+<button onclick="getAllLenders()">All Financers</button>
+<button><a href="./financer.html">Switch To Financer</a></button> 
   </div>
-<div style="text-align: center;">
-   <button><a href="./financer.html">Switch To Financer</a></button>  
-      <div class="box">
-         <button><a class="button" href="#popup1">Request Loan</a></button>
-      </div>
- </div>
 <div id="popup1" class="overlay">
   <div class="popup">
         <h2>Request Loan From Our Financers</h2>
@@ -37,7 +34,9 @@
     </div>
   </div>
 </div>
-
+</br>
+</br>
+</br>
 <div style="text-align:center;">
 <label><b>Repay Amount:</b></label></br>
 <input type="text" id="repayLoanId" placeholder="Enter Loan Id ." required /></br>
@@ -61,10 +60,6 @@
 <button onclick="getLoanStatus()">Get Status</button>
 </div>
 </br>
-<center>
-<button onclick="getAllLenders()">All Financers</button>
-<button onclick="getMyLoans()">My Loans</button>
-</center>
 </br>
 <div id="resp" style="text-align:center;"></div>
 <hr>
