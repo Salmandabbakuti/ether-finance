@@ -11,18 +11,12 @@
   </br>
   <h3><marquee behavior="alternate">“Making World Self Reliant..Connecting Financers and Industries Together"</marquee></h3>
   <h4>Small Industries Financing Platform</h4>
-  <div id="banner">
-    <img src="fintech.jpeg">
-  </div>
-<div style="text-align: center;">
-   <button><a href="./customer.html">Switch To Customer</a></button>  
-    <!––Popup Box button-->
-      <div class="box">
-        <button><a class="button" href="#popup1">Register As Financer</a></button>
-      </div>
-    <button onclick="getRequests()">Loan Requests</button>
-</div>
 </br>
+<div id="nav" style="text-align: center;">
+   <button onclick="getRequests()">Loan Requests</button>
+   <button><a class="button" href="#popup1">Register As Financer</a></button>
+    <button><a href="./customer.html">Switch To Customer</a></button>  
+  </div>    
 <!––Popup Box Start-->
 <div id="popup1" class="overlay">
   <div class="popup">
@@ -36,11 +30,14 @@
            <input type="text" id="address" placeholder="Address.." required />
            <input type="text" id="contactNumber" placeholder="Contact Number.." required />
            <input type="number" id="poolCapacity" placeholder="Pool Capacity in Ether...." required /></br>
-           <button id="registerLender">Register</button>
+           <button id="registerLender">Register Financer</button>
        </div>	
     </div>
   </div>
 </div>
+</br>
+</br>
+</br>
 <!––Popup Box Ends-->
 <div style="text-align: center;">
 <label><b>Approve Loan</b></label></br>
@@ -63,7 +60,7 @@
 <div id="resp" style="text-align:center;"></div>
 
 <div style="text-align:center;">
-<h2> All Loan Requests</h2>
+<h2> All Loan Requests</h2></br>
 <div id="allRequests" style="text-align:center;"></div>
 </div>
 <hr>
