@@ -9,16 +9,13 @@
   <h2>MicroFinance</h2>
   </br>
   <h3><marquee behavior="alternate">“Making World Self Reliant..Connecting Financers and Industries Together"</marquee></h3>
-  <h4>Small Industries Financing Platform</h4>
-  <div id="banner">
-    <img src="fintech.jpeg">
+  <h4>Small Industries Financing Platform</h4></br>
+<div id="nav">
+  <button onclick="getMyLoans()">My Loans</button>
+<button><a class="button" href="#popup1">Request Loan</a></button> 
+<button onclick="getAllLenders()">All Financers</button>
+<button><a href="./financer.html">Switch To Financer</a></button> 
   </div>
-<div style="text-align: center;">
-   <button><a href="./financer.html">Switch To Financer</a></button>  
-      <div class="box">
-         <button><a class="button" href="#popup1">Request Loan</a></button>
-      </div>
- </div>
 <div id="popup1" class="overlay">
   <div class="popup">
         <h2>Request Loan From Our Financers</h2>
@@ -32,38 +29,37 @@
         <input type="number" id="requestAmount" placeholder="Loan Amount in Ether.." required />
         <input type="text" id="lenderAddress" placeholder="Financer Address.." required />
         <input type="text" id="repaymentPeriod" placeholder="Enter Repayment Period" required /></br>
-       <button id="requestLoan">Request Loan</button>
+       <button id="requestLoan">Submit</button>
       </div>
     </div>
   </div>
 </div>
-
-<div style="text-align: center;">
-<label><b>Repay Amount:</b></label>
-<input type="text" id="repayLoanId" placeholder="Enter Loan Id ." required />
-<input type="number" id="repayLoanAmount" placeholder="Enter Amount In Ether.." required />
-<button id="repayAmount">Pay Amount</button>
+</br>
+</br>
+</br>
+<div style="text-align:center;">
+<label><b>Repay Amount:</b></label></br>
+<input type="text" id="repayLoanId" placeholder="Enter Loan Id ." required /></br>
+<input type="number" id="repayLoanAmount" placeholder="Enter Amount In Ether.." required /></br>
+<button id="repayAmount">Submit</button>
 </div>
 <div style="text-align: center;">
-<label><b>Clear Loan:</b></label>
-<input type="number" id="endLoanId" placeholder="Enter Loan Id.." required />
+<label><b>Clear Loan</b></label></br>
+<input type="number" id="endLoanId" placeholder="Enter Loan Id.." required /></br>
 <button id="endLoan">Submit</button>
 </div>
 
 <div style="text-align: center;">
-<label><b>Loan Details:</b></label>
-<input type="number" id="getLoanId" placeholder="Enter Loan Id.." required />
+<label><b>Loan Details</b></label></br>
+<input type="number" id="getLoanId" placeholder="Enter Loan Id.." required /></br>
 <button onclick="getLoanDetails()">Get Details</button>
 </div>
 <div style="text-align: center;">
-<label><b>Loan Status:</b></label>
-<input type="number" id="getloanIdStatus" placeholder="Enter Loan Id.." required />
+<label><b>Loan Status</b></label></br>
+<input type="number" id="getloanIdStatus" placeholder="Enter Loan Id.." required /></br>
 <button onclick="getLoanStatus()">Get Status</button>
 </div>
-<center>
-<button onclick="getAllLenders()">All Financers</button>
-<button onclick="getMyLoans()">My Loans</button>
-</center>
+</br>
 </br>
 <div id="resp" style="text-align:center;"></div>
 <hr>
