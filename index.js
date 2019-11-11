@@ -115,7 +115,7 @@ function getLoanDetails() {
 }
 function getLoanStatus() {
     // The userInfo is a public variable, which allows us to execute it as a function with the right parameters to get its value
-    finance.loanStatus(document.getElementById("getloanIdStatus").value, (err, loanData) => {
+    finance.loanStatus(document.getElementById("getloanId").value, (err, loanData) => {
         if(err) return alert(err)
  let profileContent = ''
         let repaymentPeriod = loanData[0]
