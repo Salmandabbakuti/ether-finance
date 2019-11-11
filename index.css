@@ -63,6 +63,13 @@ button:hover {
   background-clip: padding-box;
   text-align: center;
 }
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+}
 
 .overlay {
   position: fixed;
