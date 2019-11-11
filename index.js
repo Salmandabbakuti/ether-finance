@@ -55,7 +55,7 @@ function getRequests() {
                      <div><b>Contact Address:</b> ${loanData[3]}</div>
                 </div>`
 
-                if(i === maxRequests - 1) document.querySelector('#allRequests').innerHTML = sectionsContent
+                if(i === maxRequests - 1) document.querySelector('#resp').innerHTML = sectionsContent
             })
         }
     })
