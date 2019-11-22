@@ -3,8 +3,7 @@ function log(message) {
     console.log(message);
      }
   function error(message) {
-    $('#log').append($('<p>').addClass('dark-red').text(message.message));
-    $('#log').scrollTop($('#log').prop('scrollHeight'));
+   document.getElementById("log").innerHTML=message.message;
   }
   function waitForReceipt(hash, cb) {
     web3.eth.getTransactionReceipt(hash, function (err, receipt) {
