@@ -165,6 +165,9 @@ function getLoanStatus() {
         let isExists = loanData[3]
         let isEnded = loanData[4]
         let dateApproved = loanData[5]
+       var newDate = new Date();
+       newDate.setTime(dateApproved * 1000);
+       dateString = newDate.toUTCString();
         
         profileContent += `
    <table>
@@ -182,7 +185,7 @@ function getLoanStatus() {
             <td>${isApproved}</td>
             <td>${isExists}</td>
             <td>${isEnded}</td>
-            <td>${dateApproved}</td>  
+            <td>${dateString}</td>  
             
           </tr></table>`
         document.querySelector('#resp').innerHTML = profileContent;
