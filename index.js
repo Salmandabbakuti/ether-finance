@@ -25,58 +25,96 @@ function log(message) {
   }
 function getMyLoans() {
     finance.getMyLoansLength((err, maxLoans) => {
-        let sectionsContent = ''
+        let sectionsContent = `<table>
+   <tr>
+   <th>S.No</th>
+   <th>Loan Id</th>
+   <th>Financer</th>
+   <th>Loan Amount</th>
+   <th>Repayment Period</th>
+   </tr>`
         maxLoans = maxLoans.toNumber()
         for(let i = 0; i < maxLoans; i++) {
             finance.getMyLoans(i, (err, loanData) => {
-                sectionsContent += `<div class="message-box">
-                    <div><b>Loan Id:</b> ${loanData[0]}</div>
-                    <div><b>Lender:</b>${loanData[1]}</div>
-                    <div><b>LoanAmount:</b> ${(loanData[2])/1000000000000000000} ETH</div>
-                     <div><b>Repayment Period:</b> ${loanData[3]}</div>
-                </div>`
+                sectionsContent += `<tr>
+                <td>${i+1}</td>
+                 <td>${loanData[0]}</td>
+                    <td>${loanData[1]}</td>
+                    <td>${(loanData[2])/1000000000000000000} ETH</td>
+                     <td>${(loanData[3]/2629746)} Months</td>
+                </tr>`
 
                 if(i === maxLoans - 1) document.querySelector('#resp').innerHTML = sectionsContent;
             })
+            let content = sectionsContent+ `</table>`;
+    document.querySelector('#resp').innerHTML = content;
+
         }
+
     })
+
 }
 function getRequests() {
     finance.getRequestsLength((err, maxRequests) => {
-        let sectionsContent = ''
+        let sectionsContent =`<table>
+   <tr>
+   <th>S.No</th>
+   <th>Loan Id</th>
+   <th>Requester</th>
+   <th>Loan Amount</th>
+   <th>Contact Address</th>
+   </tr>`
         maxRequests = maxRequests.toNumber()
         for(let i = 0; i < maxRequests; i++) {
             finance.getRequests(i, (err, loanData) => {
-                sectionsContent += `<div class="message-box">
-                    <div><b>Loan Id:</b> ${loanData[0]}</div>
-                    <div><b>Requester:</b>${loanData[1]}</div>
-                    <div><b>LoanAmount:</b> ${loanData[2]/1000000000000000000} ETH</div>
-                     <div><b>Contact Address:</b> ${loanData[3]}</div>
-                </div>`
+                sectionsContent += `<tr>
+                      <td>${i+1}</td>
+                    <td>${loanData[0]}</td>
+                    <td>${loanData[1]}</td>
+                    <td>${loanData[2]/1000000000000000000} ETH</td>
+                     <td>${loanData[3]}</td>
+                <tr>`
 
                 if(i === maxRequests - 1) document.querySelector('#resp').innerHTML = sectionsContent
             })
+     let content = sectionsContent+ `</table>`;
+    document.querySelector('#resp').innerHTML = content;
+
         }
+
     })
 }
 function getAllLenders() {
     finance.getAllLendersLength((err, maxLenders) => {
-        let sectionsContent = ''
+        let sectionsContent =  `<table>
+   <tr>
+   <th>S.No</th>
+   <th>Financer Address</th>
+   <th>Name</th>
+   <th>Contact</th>
+   <th>Mobile</th>
+   <th>PoolCapacity</th>
+   </tr>`
         maxLenders = maxLenders.toNumber()
         for(let i = 0; i < maxLenders; i++) {
             finance.allLenders(i, (err, lenderData) => {
-                sectionsContent += `<div class="message-box">
-                    <div><b>Financer:</b> ${lenderData[0]}</div>
-                    <div><b>Lender Name:</b> ${lenderData[1]}</div>
-                    <div><b>Lender Contact Address:</b>${lenderData[4]}</div>
-                     <div><b>Mobile:</b>${lenderData[5]}</div>
-                     <div><b>Pool Capacity:</b> ${lenderData[6]} ETH</div>
+                sectionsContent += `<tr>
+                    <td>${i+1}</td>
+                    <td>${lenderData[0]}</td>
+                    <td>${lenderData[1]}</td>
+                    <td>${lenderData[4]}</div>
+                     <td>${lenderData[5]}</td>
+                     <td>${lenderData[6]} ETH</td>
                 
-                 </div>`
+                 </tr>`
 
                 if(i === maxLenders - 1) document.querySelector('#resp').innerHTML = sectionsContent;
             })
+            let content = sectionsContent+ `</table>`;
+             document.querySelector('#resp').innerHTML = content;
+
         }
+
     })
 }
 function getLoanDetails() {
@@ -93,22 +131,26 @@ function getLoanDetails() {
         let loanAmount = loanData[6]
         
         profileContent += `
-           <b>LoanId</b>: </br>
-            <span>${loanId}</span> <br/>
-            <b>Requester Address</b>: </br>
-            <span>${requesterAddress}</span> <br/>
-            <b>Name</b>: </br>
-            <span>${requesterName}</span> <br/>
-            <b>Mobile</b>:</br> 
-            <span>${requesterMobile}</span> </br>
-            <b>Requester Contact Address</b>: </br>
-            <span>${requesterPermanentAddress}</span> <br/>
-            <b>Financer Address</b>: </br>
-            <span>${lenderAddress}</span> <br/>
-            <b>Loan Amount</b>:</br> 
-            <span>${loanAmount/1000000000000000000} ETH</span> 
+   <table>
+   <tr>
+   <th>Loan Id</th>
+   <th>Requester Address</th>
+   <th>Name</th>
+   <th>Mobile</th>
+   <th>Contact</th>
+   <th>Financer Address</th>
+   <th>Loan Amount</th>
+   </tr>
+   <tr>
+            <td>${loanId}</td>
+            <td>${requesterAddress}</td>
+            <td>${requesterName}</td>
+            <td>${requesterMobile}</td>
+            <td>${requesterPermanentAddress}</td>
+            <td>${lenderAddress}</td> 
+            <td>${loanAmount/1000000000000000000} ETH</td> 
             
-           <br/>`
+          </tr></table>`
         document.querySelector('#resp').innerHTML = profileContent;
     })
 }
@@ -125,20 +167,24 @@ function getLoanStatus() {
         let dateApproved = loanData[5]
         
         profileContent += `
-           <b>Repayment Period</b>: </br>
-            <span>${repaymentPeriod}</span> <br/>
-            <b>Settled Amount</b>: </br>
-            <span>${settledAmount/1000000000000000000} ETH</span> <br/>
-            <b>Approval</b>: </br>
-            <span>${isApproved}</span> <br/>
-            <b>Existance</b>:</br> 
-            <span>${isExists}</span></br>
-            <b>Ended</b>: </br>
-            <span>${isEnded}</span> <br/>
-            <b>Approval Date</b>:</br> 
-            <span>${dateApproved}</span> 
-        
-         <br/>`
+   <table>
+   <tr>
+   <th>Repayment Period</th>
+   <th>Settled Amount</th>
+   <th>Is Approved</th>
+   <th>Is Exists</th>
+   <th>Is Ended</th>
+   <th>Approval Date</th>
+   </tr>
+   <tr>
+            <td>${repaymentPeriod/2629746} Months</td>
+            <td>${settledAmount/1000000000000000000} ETH</td>
+            <td>${isApproved}</td>
+            <td>${isExists}</td>
+            <td>${isEnded}</td>
+            <td>${dateApproved}</td>  
+            
+          </tr></table>`
         document.querySelector('#resp').innerHTML = profileContent;
     })
 }
@@ -218,7 +264,7 @@ $(function () {
                      "please unlock it first and reload the page.");
       }
       log("Transaction On its Way...");
-      finance.requestLoan.sendTransaction(document.getElementById("requesterName").value,document.getElementById("requesterContactNumber").value,document.getElementById("requesterAddress").value,document.getElementById("lenderAddress").value,document.getElementById("requestAmount").value*1000000000000000000,document.getElementById("repaymentPeriod").value,function (err, hash) {
+      finance.requestLoan.sendTransaction(document.getElementById("requesterName").value,document.getElementById("requesterContactNumber").value,document.getElementById("requesterAddress").value,document.getElementById("lenderAddress").value,document.getElementById("requestAmount").value*1000000000000000000,document.getElementById("repaymentPeriod").value*2629746,function (err, hash) {
         if (err) {
           return error(err);
         }

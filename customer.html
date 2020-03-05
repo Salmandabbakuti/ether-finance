@@ -3,6 +3,7 @@
 <meta name="viewport" content="height=device-height, initial-scale=0.68">
 <head>
   <title>Micro Finance Dapp</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div id="band"></div>
@@ -30,7 +31,7 @@
         <input type="text" id="requesterContactNumber" placeholder="Contact Number.." required />
         <input type="number" id="requestAmount" placeholder="Loan Amount in Ether.." required />
         <input type="text" id="lenderAddress" placeholder="Financer Address.." required />
-        <input type="text" id="repaymentPeriod" placeholder="Enter Repayment Period" required /></br>
+        <input type="number" id="repaymentPeriod" placeholder="Repayment Period in months.." required /></br>
        <button id="requestLoan">Submit</button>
       </div>
     </div>
@@ -77,10 +78,9 @@
 </br>
 <div id="resp" style="text-align:center;"></div>
 <hr>
- <link rel="stylesheet" href="index.css">
-<script src="web3.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src= "index.js"></script>
+ 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
+<script src= "index.js" defer></script>
 </body>
 <div id="log" style="text-align: center;"></div>
 <footer style="text-align: right;">
